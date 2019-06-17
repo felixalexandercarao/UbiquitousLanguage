@@ -5,13 +5,17 @@ namespace Business
 {
     public class UserServices
     {
-        public void AddUserToRepository(User user)
+
+        public void FileUsersConcern(Concern concern, User user)
         {
-            Console.WriteLine("{0} has been added",user.UserName);
-        }
-        public void RegisterClientToUser(Tenant tenant, User user)
-        {
-            Console.WriteLine("{0} has rented {1}'s house", tenant.TenantName, user.UserName);
+            if (Helper.ConcernCheck(concern))
+            { 
+                Console.WriteLine("{1} has filed his concern : {0}", concern.ConcernBody, user.UserName);
+            }
+            else
+            {
+                Console.WriteLine("Your input is invalid");
+            }
         }
     }
 }
